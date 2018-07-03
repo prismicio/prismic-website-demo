@@ -3,15 +3,15 @@ const express = require('express');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
+const prismicDOM = require('prismic-dom');
+const prismicJS = require('prismic-javascript');
 
-const { RichText, Link } = require('prismic-dom');
-const { endpoint } = require('./prismic/config');
-const linkResolver = require('./prismic/link-resolver');
-
+const linkResolver = require('./link-resolver');
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 
 const app = express();
+const prismicEndpoint = 'https://new-demo.prismic.io/api/v2';
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -24,14 +24,26 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 // Prismic middleware
-app.use((req, res, next) => {
-  res.locals.prismic = {
-    RichText,
-    Link,
-    endpoint,
-    linkResolver
+app.use(function (req, res, next) {
+  res.locals.prismicEndpoint = prismicEndpoint;
+  res.locals.linkAsUrl = function (field) {
+    return prismicDOM.Link.url(field, linkResolver);
   };
-  next();
+  res.locals.richTextAsHtml = function (field) {
+    return prismicDOM.RichText.asHtml(field, linkResolver);
+  };
+  res.locals.richTextAsPlain = function (field) {
+    return prismicDOM.RichText.asText(field);
+  };
+
+  prismicJS.api(prismicEndpoint, { req })
+    .then((api) => {
+      req.prismic = { api };
+      next();
+    })
+    .catch((error) => {
+      res.status(404).send(error.message);
+    });
 });
 
 // routes
@@ -39,12 +51,12 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 
 // catch 404 and forward to error handler
-app.use((req, res, next) => {
+app.use(function (req, res, next) {
   next(createError(404));
 });
 
 // error handler
-app.use((err, req, res, next) => {
+app.use(function (err, req, res, next) {
   // set locals, only providing error in development
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};
