@@ -1,7 +1,19 @@
 <%- include('partials/header'); %>
 
-<div class="wrapper">
-  <%- richTextAsHtml(document.data.title) %>
-</div>
+<header class="homepage-header">
+  <div class="l-wrapper">
+    <div class="homepage-header-title">
+      <%- richTextAsHtml(document.data.title) %>
+    </div>
+  </div>
+</header>
+
+<section class="homepage-banner" style="background-image: url(<%= document.data.banner_image.url %>)">
+  <div class="l-wrapper">
+    <div class="homepage-banner-text-box">
+      <%- richTextAsHtml(document.data.banner_text) %>
+    </div>
+  </div>
+</section>
 
 <%- include('partials/footer'); %>

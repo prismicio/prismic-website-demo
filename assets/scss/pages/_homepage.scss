@@ -1,0 +1,44 @@
+/**
+ * Header
+ */
+
+.homepage-header {
+  padding: 100px 0;
+}
+
+.homepage-header-title {
+  max-width: 764px;
+  font-family: $font-mono;
+  font-size: 28px;
+  line-height: 1.786;
+}
+
+/**
+ * Banner
+ */
+
+.homepage-banner {
+  height: 600px;
+  background-color: #f6f6f6;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.homepage-banner-text-box {
+  max-width: 565px;
+  margin-left: auto;
+  position: relative;
+  top: 180px;
+
+  padding: 70px;
+  background-color: #121212;
+  color: white;
+  font-family: $font-mono;
+  font-size: 17px;
+  line-height: 2.353;
+
+  p:not(:first-child) {
+    margin-top: 40px;
+  }
+}
