@@ -1,9 +1,7 @@
 const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
-module.exports = {
-  mode: 'development',
-  watch: true,
+const baseWebpackConfig = {
   entry: path.resolve('./assets/js/main.js'),
   output: {
     path: path.resolve('./public/bundles'),
@@ -25,3 +23,5 @@ module.exports = {
     })
   ]
 };
+
+module.exports = baseWebpackConfig;
