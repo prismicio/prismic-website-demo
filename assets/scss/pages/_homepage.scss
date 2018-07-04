@@ -42,3 +42,17 @@
     margin-top: 40px;
   }
 }
+
+/**
+ * Slices
+ */
+
+.homepage-slices-wrapper {
+  padding: 130px 0;
+}
+
+.homepage-slice-wrapper {
+  &:not(:first-child) {
+    margin-top: 130px;
+  }
+}

@@ -1,0 +1,28 @@
+/**
+ * Header
+ */
+
+.featured-items-header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.featured-items-header-title {
+  max-width: 592px;
+  font-family: $font-mono;
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 1.786;
+}
+
+.featured-items-header-button {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+  padding: 0 32px;
+  border: 1px solid;
+  border-radius: 2px;
+  font-weight: 500;
+  white-space: nowrap;
+}

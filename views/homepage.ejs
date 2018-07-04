@@ -16,4 +16,14 @@
   </div>
 </section>
 
+<div class="homepage-slices-wrapper">
+  <% document.data.body.forEach(function (slice) { %>
+    <% if (slice.slice_type === 'featured_items') { %>
+      <div class="homepage-slice-wrapper">
+        <%- include('partials/slices/featured-items', { slice }); %>
+      </div>
+    <% } %>
+  <% }); %>
+</div>
+
 <%- include('partials/footer'); %>
