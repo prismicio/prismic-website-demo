@@ -3,7 +3,7 @@ const router = express.Router();
 
 /* GET homepage. */
 router.get('/', function (req, res, next) {
-  req.prismic.api.getSingle('homepage')
+  req.prismic.api.getSingle('homepage', { fetchLinks: ['product.product_image', 'product.product_name', 'product.sub_title'] })
     .then((document) => {
       res.render('homepage', { document });
     })
