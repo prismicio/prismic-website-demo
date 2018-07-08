@@ -34,21 +34,15 @@
 .featured-items-products-wrapper {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
-
-  @media (max-width: 1178px) {
-    justify-content: center;
-  }
+  justify-content: center;
+  max-width: 1190px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .featured-items-product-wrapper {
-  margin-top: 70px;
   max-width: 366px;
-
-  @media (max-width: 1178px) and (min-width: 440px) {
-    margin-left: 15px;
-    margin-right: 15px;
-  }
+  margin: 70px 15px 0;
 }
 
 .featured-items-product-image {

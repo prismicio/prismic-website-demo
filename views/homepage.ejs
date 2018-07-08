@@ -22,6 +22,10 @@
       <div class="homepage-slice-wrapper">
         <%- include('partials/slices/featured-items', { slice }); %>
       </div>
+    <% } else if (slice.slice_type === 'big_bullet_item') { %>
+      <div class="homepage-slice-wrapper">
+        <%- include('partials/slices/numeroted-items', { slice }); %>
+      </div>
     <% } %>
   <% }); %>
 </div>

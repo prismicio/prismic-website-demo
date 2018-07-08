@@ -1,0 +1,16 @@
+<section>
+  <div class="l-wrapper">
+    <header class="numeroted-items-header">
+      <div class="numeroted-items-header-title">
+        <%- richTextAsHtml(slice.primary.title_section) %>
+      </div>
+    </header>
+  </div>
+  <div class="numeroted-items-items-wrapper">
+    <% slice.items.forEach(function (item) { %>
+      <div class="numeroted-items-item-wrapper">
+        <%- richTextAsHtml(item.description_paragraph) %>
+      </div>
+    <% }); %>
+  </div>
+</section>
