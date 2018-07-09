@@ -18,26 +18,59 @@
  */
 
 .homepage-banner {
+  position: relative;
+
+  @media (max-width: 1000px) {
+    position: static;
+    overflow: hidden;
+    font-size: 0;
+  }
+}
+
+.homepage-banner-image {
+  width: 100%;
   height: 600px;
   background-color: #f6f6f6;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
+  object-fit: cover;
+  object-position: left center;
+
+  @media (max-width: 1000px) {
+    width: 200%;
+    height: auto;
+  }
+}
+
+.homepage-banner-box-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  max-width: 1160px;
+  margin-left: auto;
+  margin-right: auto;
+
+  @media (max-width: 1000px) {
+    position: static;
+  }
 }
 
 .homepage-banner-box {
-  width: 100%;
-  max-width: 565px;
-  margin-left: auto;
   position: relative;
   top: 180px;
-
+  margin-left: auto;
+  width: 100%;
+  max-width: 565px;
   padding: 70px;
   background-color: #121212;
   color: white;
   font-family: $font-mono;
   font-size: 17px;
   line-height: 2.353;
+
+  @media (max-width: 1000px) {
+    position: static;
+    margin-right: auto;
+  }
 
   p:not(:first-child) {
     margin-top: 40px;
