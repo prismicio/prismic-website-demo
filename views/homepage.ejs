@@ -26,6 +26,10 @@
       <div class="homepage-slice-wrapper">
         <%- include('partials/slices/numeroted-items', { slice }); %>
       </div>
+    <% } else if (slice.slice_type === 'separator') { %>
+      <div class="homepage-slice-wrapper">
+        <%- include('partials/slices/separator'); %>
+      </div>
     <% } else if (slice.slice_type === 'text_block') { %>
       <div class="homepage-slice-wrapper">
         <%- include('partials/slices/text-block', { slice }); %>
