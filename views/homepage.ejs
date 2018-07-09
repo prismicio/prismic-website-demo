@@ -18,7 +18,11 @@
 
 <div class="homepage-slices-wrapper">
   <% document.data.body.forEach(function (slice) { %>
-    <% if (slice.slice_type === 'featured_items') { %>
+    <% if (slice.slice_type === 'cta_banner') { %>
+      <div class="homepage-slice-wrapper">
+        <%- include('partials/slices/cta-banner', { slice }); %>
+      </div>
+    <% } else if (slice.slice_type === 'featured_items') { %>
       <div class="homepage-slice-wrapper">
         <%- include('partials/slices/featured-items', { slice }); %>
       </div>

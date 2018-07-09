@@ -1,0 +1,18 @@
+<section>
+  <div class="cta-banner-inner">
+    <img class="cta-banner-image" src="<%= slice.primary.image_banner.url %>" alt="<%= slice.primary.image_banner.alt %>">
+    <div class="cta-banner-content">
+      <div class="cta-banner-box">
+        <div class="cta-banner-title">
+          <%- richTextAsHtml(slice.primary.banner_title) %>
+        </div>
+        <div class="cta-banner-text">
+          <%- richTextAsHtml(slice.primary.banner_text) %>
+        </div>
+      </div>
+      <div class="cta-banner-link-wrapper">
+        <a class="cta-banner-link" href="<%= linkAsUrl(slice.primary.cta_link) %>"><%= slice.primary.cta_label %></a>
+      </div>
+    </div>
+  </div>
+</section>
