@@ -58,6 +58,10 @@
   font-size: 18px;
   font-weight: 700;
   text-align: center;
+
+  &::before {
+    content: "⇥";
+  }
 }
 
 .featured-items-product-subtitle {
