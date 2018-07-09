@@ -75,6 +75,10 @@
   &::before {
     content: "⇥";
   }
+
+  a {
+    text-decoration: underline
+  }
 }
 
 .featured-items-product-subtitle {
