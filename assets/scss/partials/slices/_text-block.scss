@@ -7,13 +7,14 @@
 }
 
 .text-block-title {
-  margin-right: 30px;
   max-width: 366px;
   width: 100%;
   font-family: $font-mono;
   font-size: 28px;
   font-weight: 700;
   line-height: 1.786;
+
+  margin-right: 30px;
 
   @media (max-width: 1190px) {
     margin-right: 0;

@@ -5,6 +5,12 @@
 .featured-items-header {
   display: flex;
   justify-content: space-between;
+
+  @media (max-width: 774px) {
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
 }
 
 .featured-items-header-title {
@@ -25,6 +31,13 @@
   border-radius: 2px;
   font-weight: 500;
   white-space: nowrap;
+
+  margin-left: 30px;
+
+  @media (max-width: 774px) {
+    margin-left: 0;
+    margin-top: 30px;
+  }
 }
 
 /**
