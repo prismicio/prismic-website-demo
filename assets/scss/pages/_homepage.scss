@@ -3,7 +3,13 @@
  */
 
 .homepage-header {
-  padding: 100px 0;
+  padding-top: 100px;
+  padding-bottom: 100px;
+
+  @media (max-width: 565px) {
+    padding-top: 60px;
+    padding-bottom: 60px;
+  }
 }
 
 .homepage-header-title {
@@ -11,6 +17,11 @@
   font-family: $font-mono;
   font-size: 28px;
   line-height: 1.786;
+
+  @media (max-width: 565px) {
+    font-size: 22px;
+    line-height: 1.909;
+  }
 }
 
 /**

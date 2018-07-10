@@ -16,4 +16,22 @@
     <script src="https://static.cdn.prismic.io/prismic.min.js"></script>
   </head>
   <body>
+
+    <header class="header">
+      <div class="l-wrapper">
+        <div class="header-inner">
+          <div class="header-name">
+            <%= layoutContent.header_name %>
+          </div>
+          <nav class="header-nav-items">
+            <% layoutContent.header_nav_items.forEach(function (item) { %>
+              <a class="header-nav-item" href="<%= linkAsUrl(item.link) %>">
+                <%= item.text %>
+              </a>
+            <% }); %>
+          </nav>
+        </div>
+      </div>
+    </header>
+
     <main>

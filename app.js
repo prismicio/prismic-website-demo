@@ -46,6 +46,18 @@ app.use(function (req, res, next) {
     });
 });
 
+// retrieve layout content
+app.use(function (req, res, next) {
+  req.prismic.api.getSingle('layout')
+    .then((document) => {
+      res.locals.layoutContent = document.data;
+      next();
+    })
+    .catch((error) => {
+      next(`Error when retrieving "layout" document from Prismic. ${error.message}`);
+    });
+});
+
 // routes
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
