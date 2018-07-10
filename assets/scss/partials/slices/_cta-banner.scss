@@ -41,17 +41,31 @@
   background-color: #121212;
   color: white;
   font-family: $font-mono;
+
+  @media (max-width: 580px) {
+    padding: 60px;
+  }
 }
 
 .cta-banner-title {
   font-size: 28px;
   line-height: 1.786;
+
+  @media (max-width: 580px) {
+    font-size: 22px;
+    line-height: 1.909;
+  }
 }
 
 .cta-banner-text {
   margin-top: 5px;
   font-size: 17px;
   line-height: 2.353;
+
+  @media (max-width: 580px) {
+    font-size: 16px;
+    line-height: 2.25;
+  }
 }
 
 .cta-banner-link-wrapper {

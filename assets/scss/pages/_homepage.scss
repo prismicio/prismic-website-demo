@@ -72,8 +72,18 @@
     margin-right: auto;
   }
 
+  @media (max-width: 565px) {
+    padding: 60px;
+    font-size: 16px;
+    line-height: 2.25;
+  }
+
   p:not(:first-child) {
     margin-top: 40px;
+
+    @media (max-width: 565px) {
+      margin-top: 30px;
+    }
   }
 }
 
