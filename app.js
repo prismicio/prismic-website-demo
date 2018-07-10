@@ -6,12 +6,12 @@ const logger = require('morgan');
 const prismicDOM = require('prismic-dom');
 const prismicJS = require('prismic-javascript');
 
+const prismicConfig = require('./prismic.config.js');
 const linkResolver = require('./link-resolver');
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 
 const app = express();
-const prismicEndpoint = 'https://new-demo.prismic.io/api/v2';
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -25,7 +25,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // Prismic middleware
 app.use(function (req, res, next) {
-  res.locals.prismicEndpoint = prismicEndpoint;
+  res.locals.prismicEndpoint = prismicConfig.endpoint;
   res.locals.linkAsUrl = function (field) {
     return prismicDOM.Link.url(field, linkResolver);
   };
@@ -36,7 +36,7 @@ app.use(function (req, res, next) {
     return prismicDOM.RichText.asText(field);
   };
 
-  prismicJS.api(prismicEndpoint, { req })
+  prismicJS.api(prismicConfig.endpoint, { req })
     .then((api) => {
       req.prismic = { api };
       next();
