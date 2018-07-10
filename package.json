@@ -8,6 +8,7 @@
   },
   "dependencies": {
     "cookie-parser": "~1.4.3",
+    "cookies": "~0.7.1",
     "cross-env": "~5.2.0",
     "debug": "~2.6.9",
     "ejs": "~2.5.7",
