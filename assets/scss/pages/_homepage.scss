@@ -3,12 +3,10 @@
  */
 
 .homepage-header {
-  padding-top: 100px;
-  padding-bottom: 100px;
+  padding: 100px 0;
 
   @media (max-width: 565px) {
-    padding-top: 60px;
-    padding-bottom: 60px;
+    padding: 60px 0;
   }
 }
 

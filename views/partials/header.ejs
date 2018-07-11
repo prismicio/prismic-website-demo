@@ -17,19 +17,21 @@
   </head>
   <body>
 
-    <header class="header">
-      <div class="l-wrapper">
-        <div class="header-inner">
-          <div class="header-name">
-            <%= layoutContent.header_name %>
-          </div>
-          <nav class="header-nav-items">
-            <% layoutContent.header_nav_items.forEach(function (item) { %>
-              <a class="header-nav-item" href="<%= linkAsUrl(item.link) %>">
-                <%= item.text %>
-              </a>
-            <% }); %>
-          </nav>
+    <header class="header" id="header">
+      <div class="header-inner">
+        <div class="header-name">
+          <%= layoutContent.header_name %>
+        </div>
+        <nav class="header-nav">
+          <% layoutContent.header_nav_items.forEach(function (item) { %>
+            <a class="header-nav-link" href="<%= linkAsUrl(item.link) %>">
+              <%= item.text %>
+            </a>
+          <% }); %>
+        </nav>
+        <div class="header-burger" id="header-burger">
+          <img class="header-burger-img header-burger-img--closed" src="/img/burger-closed.svg" alt="Mobile menu toggle - closed state">
+          <img class="header-burger-img header-burger-img--opened" src="/img/burger-opened.svg" alt="Mobile menu toggle - opened state">
         </div>
       </div>
     </header>
