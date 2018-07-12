@@ -1,4 +1,18 @@
     </main>
+    <footer class="footer">
+      <div class="footer-inner">
+        <div class="footer-name">
+          <%= layoutContent.site_name %>
+        </div>
+        <nav class="footer-nav">
+          <% layoutContent.footer_nav_items.forEach(function (item) { %>
+            <a class="footer-nav-link" href="<%= linkAsUrl(item.link) %>">
+              <%= item.text %>
+            </a>
+          <% }); %>
+        </nav>
+      </div>
+    </footer>
     <script src="/bundles/main.js"></script>
   </body>
 </html>
