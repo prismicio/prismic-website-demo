@@ -1,5 +1,6 @@
-import $ from 'jquery';
 import "../scss/main.scss";
+
+import $ from 'jquery';
 
 $(document).ready(function () {
   const $header = $('#header');

@@ -1,8 +1,18 @@
     </main>
+
     <footer class="footer">
       <div class="footer-inner">
-        <div class="footer-name">
-          <%= layoutContent.site_name %>
+        <div>
+          <p class="footer-name">
+            <%= layoutContent.site_name %>
+          </p>
+          <div class="footer-social-items">
+            <% layoutContent.footer_social_items.forEach(function (item) { %>
+              <a class="footer-social-item" href="<%= linkAsUrl(item.link) %>">
+                <img src="<%= item.icon.url %>" alt="<%= item.icon.alt %>"/>
+              </a>
+            <% }); %>
+          </div>
         </div>
         <nav class="footer-nav">
           <% layoutContent.footer_nav_items.forEach(function (item) { %>
@@ -13,6 +23,8 @@
         </nav>
       </div>
     </footer>
+
     <script src="/bundles/main.js"></script>
+
   </body>
 </html>

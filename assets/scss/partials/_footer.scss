@@ -28,9 +28,30 @@
 }
 
 .footer-name {
-  flex-shrink: 0;
+  margin-bottom: 30px;
   font-size: 28px;
   font-weight: 700;
+}
+
+.footer-social-items {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.footer-social-item {
+  display: inline-block;
+
+  &:not(:last-child) {
+    margin-right: 20px;
+  }
+
+  width: 28px;
+  height: 28px;
+
+  img {
+    width: 100%;
+    height: 100%;
+  }
 }
 
 .footer-nav {
