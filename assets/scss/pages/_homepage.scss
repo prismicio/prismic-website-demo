@@ -66,9 +66,9 @@
 .homepage-banner-box {
   position: relative;
   top: 180px;
-  margin-left: auto;
   width: 100%;
   max-width: 565px;
+  margin-left: auto;
   padding: 70px;
   background-color: #121212;
   color: white;
@@ -78,7 +78,8 @@
 
   @media (max-width: 1000px) {
     position: static;
-    margin-right: auto;
+    max-width: none;
+    margin-left: 0;
   }
 
   @media (max-width: 565px) {
