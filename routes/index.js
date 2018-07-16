@@ -1,5 +1,6 @@
 const express = require('express');
 const prismicJS = require('prismic-javascript');
+const prismicDOM = require('prismic-dom');
 const Cookies = require('cookies');
 
 const linkResolver = require('../link-resolver');
@@ -10,7 +11,11 @@ const router = express.Router();
 router.get('/', function (req, res, next) {
   req.prismic.api.getSingle('homepage', { fetchLinks: ['product.product_image', 'product.product_name', 'product.sub_title'] })
     .then((document) => {
-      res.render('homepage', { document });
+      const meta = {
+        title: prismicDOM.RichText.asText(document.data.meta_title),
+        description: prismicDOM.RichText.asText(document.data.meta_description)
+      };
+      res.render('homepage', { document, meta });
     })
     .catch((error) => {
       next(`Error when retrieving "homepage" document from Prismic. ${error.message}`);
