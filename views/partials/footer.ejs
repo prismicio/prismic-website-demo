@@ -8,7 +8,12 @@
           </p>
           <div class="footer-social-items">
             <% layoutContent.footer_social_items.forEach(function (item) { %>
-              <a class="footer-social-item" href="<%= linkAsUrl(item.link) %>">
+              <% const targetAttr = item.link.target ? `target=${item.link.target} rel="noopener"` : ''; %>
+              <a
+                class="footer-social-item"
+                href="<%= linkAsUrl(item.link) %>"
+                <%= targetAttr %>
+              >
                 <img src="<%= item.icon.url %>" alt="<%= item.icon.alt %>"/>
               </a>
             <% }); %>
