@@ -22,6 +22,21 @@ router.get('/', function (req, res, next) {
     });
 });
 
+/* GET product. */
+router.get('/products/:uid', function (req, res, next) {
+  req.prismic.api.getByUID('product', req.params.uid, { fetchLinks: ['product.product_image', 'product.product_name', 'product.sub_title'] })
+    .then((document) => {
+      const meta = {
+        title: prismicDOM.RichText.asText(document.data.meta_title),
+        description: prismicDOM.RichText.asText(document.data.meta_description)
+      };
+      res.render('product', { document, meta });
+    })
+    .catch((error) => {
+      next(`Error when retrieving "product" document from Prismic. ${error.message}`);
+    });
+});
+
 /* In-Website Preview by Prismic. */
 router.get('/preview', function (req, res) {
   req.prismic.api.previewSession(req.query.token, linkResolver, '/')

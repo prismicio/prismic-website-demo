@@ -1,24 +1,24 @@
 <section>
   <div class="l-wrapper">
-    <header class="featured-items-header">
-      <div class="featured-items-header-title">
+    <header class="products-grid-header">
+      <div class="products-grid-header-title">
         <%- richTextAsHtml(slice.primary.section_title) %>
       </div>
-      <a class="featured-items-header-button" href="<%= linkAsUrl(slice.primary.button_link) %>">
+      <a class="products-grid-header-button" href="<%= linkAsUrl(slice.primary.button_link) %>">
         <%= richTextAsPlain(slice.primary.button_label) %>
       </a>
     </header>
   </div>
-  <div class="featured-items-products-wrapper">
+  <div class="products-grid-items-wrapper">
     <% slice.items.forEach(function (item) { %>
-      <div class="featured-items-product-wrapper">
-        <img class="featured-items-product-image" src="<%= item.link_to_product.data.product_image.url %>" alt="<%= item.link_to_product.data.product_image.alt %>">
-        <p class="featured-items-product-name">
+      <div class="products-grid-item-wrapper">
+        <img class="products-grid-item-image" src="<%= item.link_to_product.data.product_image.url %>" alt="<%= item.link_to_product.data.product_image.alt %>"/>
+        <p class="products-grid-item-name">
           <a href="<%= linkAsUrl(item.link_to_product) %>">
             <%= richTextAsPlain(item.link_to_product.data.product_name) %>
           </a>
         </p>
-        <p class="featured-items-product-subtitle"><%= richTextAsPlain(item.link_to_product.data.sub_title) %></p>
+        <p class="products-grid-item-subtitle"><%= richTextAsPlain(item.link_to_product.data.sub_title) %></p>
       </div>
     <% }); %>
   </div>

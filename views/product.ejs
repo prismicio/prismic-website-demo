@@ -1,0 +1,47 @@
+<%- include('partials/header'); %>
+
+<div class="product-wrapper">
+  <section class="product-description">
+    <div class="l-wrapper">
+      <div class="product-description-title">
+        <%- richTextAsHtml(document.data.title) %>
+      </div>
+      <div class="product-description-content">
+        <%- richTextAsHtml(document.data.product_description) %>
+      </div>
+    </div>
+  </section>
+
+  <div class="product-separator-wrapper">
+    <div class="l-wrapper">
+      <hr class="separator-hr">
+    </div>
+  </div>
+
+  <section>
+    <div class="l-wrapper">
+      <header class="products-grid-header">
+        <div class="products-grid-header-title">
+          <%- richTextAsHtml(document.data.related_products_title) %>
+        </div>
+      </header>
+    </div>
+    <div class="products-grid-items-wrapper">
+      <% document.data.related_products.forEach(function (item) { %>
+        <div class="products-grid-item-wrapper">
+          <img class="products-grid-item-image" src="<%= item.product1.data.product_image.url %>" alt="<%= item.product1.data.product_image.alt %>"/>
+          <p class="products-grid-item-name">
+            <a href="<%= linkAsUrl(item.product1) %>">
+              <%= richTextAsPlain(item.product1.data.product_name) %>
+            </a>
+          </p>
+          <p class="products-grid-item-subtitle"><%= richTextAsPlain(item.product1.data.sub_title) %></p>
+        </div>
+      <% }); %>
+    </div>
+  </section>
+</div>
+
+<div data-wio-id="<%= document.id %>"></div>
+
+<%- include('partials/footer'); %>

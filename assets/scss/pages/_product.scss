@@ -1,0 +1,30 @@
+.product-wrapper {
+  padding-bottom: 130px;
+}
+
+.product-separator-wrapper {
+  margin-top: 130px;
+  margin-bottom: 70px;
+}
+
+/**
+ * Description
+ */
+
+.product-description-title {
+  font-family: $font-mono;
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 1.786;
+}
+
+.product-description-content {
+  margin-top: 30px;
+  font-family: $font-mono;
+  font-size: 17px;
+  line-height: 2.353;
+
+  p:not(:first-child) {
+    margin-top: 20px;
+  }
+}
