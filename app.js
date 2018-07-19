@@ -26,6 +26,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 // Prismic middleware
 app.use(function (req, res, next) {
   res.locals.prismicEndpoint = prismicConfig.endpoint;
+  res.locals.linkResolver = linkResolver;
   res.locals.linkAsUrl = function (field) {
     return prismicDOM.Link.url(field, linkResolver);
   };

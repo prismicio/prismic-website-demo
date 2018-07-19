@@ -22,9 +22,9 @@
 
     <header class="header" id="header">
       <div class="header-inner">
-        <div class="header-name">
+        <a class="header-name" href="/">
           <%= layoutContent.site_name %>
-        </div>
+        </a>
         <nav class="header-nav">
           <% layoutContent.header_nav_items.forEach(function (item) { %>
             <a class="header-nav-link" href="<%= linkAsUrl(item.link) %>">
