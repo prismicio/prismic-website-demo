@@ -21,21 +21,12 @@
   line-height: 1.786;
 }
 
-.products-grid-header-button {
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
-  height: 50px;
-  padding: 0 32px;
-  border: 1px solid;
-  border-radius: 2px;
-  font-weight: 500;
-  white-space: nowrap;
-
-  margin-left: 30px;
+.products-grid-header-button-wrapper {
+  @media (min-width: 775px) {
+    margin-left: 30px;
+  }
 
   @media (max-width: 774px) {
-    margin-left: 0;
     margin-top: 30px;
   }
 }

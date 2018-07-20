@@ -65,6 +65,27 @@ router.get('/products/:uid', function (req, res, next) {
     });
 });
 
+/* GET blog. */
+router.get('/blog', function (req, res, next) {
+  const queryBlogHomeDocument = req.prismic.api.getSingle('blog_home');
+  const queryBlogPostDocuments = req.prismic.api.query(prismicJS.Predicates.at('document.type', 'blog_post'), { pageSize: 10 });
+
+  Promise.all([queryBlogHomeDocument, queryBlogPostDocuments])
+    .then((values) => {
+      const blogHomeDocument = values[0];
+      const blogPostDocuments = values[1].results;
+      const meta = {
+        title: prismicDOM.RichText.asText(blogHomeDocument.data.meta_title),
+        description: prismicDOM.RichText.asText(blogHomeDocument.data.meta_description)
+      };
+
+      res.render('blog-home', { blogHomeDocument, blogPostDocuments, meta });
+    })
+    .catch((error) => {
+      next(`Error when retrieving documents from Prismic. ${error.message}`);
+    });
+});
+
 /* In-Website Preview by Prismic. */
 router.get('/preview', function (req, res) {
   req.prismic.api.previewSession(req.query.token, linkResolver, '/')

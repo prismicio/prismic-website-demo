@@ -4,9 +4,11 @@
       <div class="products-grid-header-title">
         <%- richTextAsHtml(slice.primary.section_title) %>
       </div>
-      <a class="products-grid-header-button" href="<%= linkAsUrl(slice.primary.button_link) %>">
-        <%= richTextAsPlain(slice.primary.button_label) %>
-      </a>
+      <div class="products-grid-header-button-wrapper">
+        <a class="a-button" href="<%= linkAsUrl(slice.primary.button_link) %>">
+          <%= richTextAsPlain(slice.primary.button_label) %>
+        </a>
+      </div>
     </header>
   </div>
   <div class="products-grid-items-wrapper">

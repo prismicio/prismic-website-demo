@@ -4,30 +4,28 @@
   <hr class="separator-hr">
 </div>
 
-<div class="products-section-wrapper">
-  <section>
-    <div class="l-wrapper">
-      <header class="products-grid-header">
-        <div class="products-grid-header-title">
-          <%- richTextAsHtml(productsDocument.data.title) %>
-        </div>
-      </header>
-    </div>
-    <div class="products-grid-items-wrapper">
-      <% productDocuments.forEach(function (document) { %>
-        <div class="products-grid-item-wrapper">
-          <img class="products-grid-item-image" src="<%= document.data.product_image.url %>" alt="<%= document.data.product_image.alt %>"/>
-          <p class="products-grid-item-name">
-            <a href="<%= linkResolver(document) %>">
-              <%= richTextAsPlain(document.data.product_name) %>
-            </a>
-          </p>
-          <p class="products-grid-item-subtitle"><%= richTextAsPlain(document.data.sub_title) %></p>
-        </div>
-      <% }); %>
-    </div>
-  </section>
-</div>
+<section class="products-section">
+  <div class="l-wrapper">
+    <header class="products-grid-header">
+      <div class="products-grid-header-title">
+        <%- richTextAsHtml(productsDocument.data.title) %>
+      </div>
+    </header>
+  </div>
+  <div class="products-grid-items-wrapper">
+    <% productDocuments.forEach(function (document) { %>
+      <div class="products-grid-item-wrapper">
+        <img class="products-grid-item-image" src="<%= document.data.product_image.url %>" alt="<%= document.data.product_image.alt %>"/>
+        <p class="products-grid-item-name">
+          <a href="<%= linkResolver(document) %>">
+            <%= richTextAsPlain(document.data.product_name) %>
+          </a>
+        </p>
+        <p class="products-grid-item-subtitle"><%= richTextAsPlain(document.data.sub_title) %></p>
+      </div>
+    <% }); %>
+  </div>
+</section>
 
 <div data-wio-id="<%= productsDocument.id %>"></div>
 
