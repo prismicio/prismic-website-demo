@@ -47,10 +47,17 @@
 .products-grid-items-wrapper {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
   max-width: 1190px;
   margin-left: auto;
   margin-right: auto;
+
+  @media (max-width: 1189px) {
+    max-width: 792px;
+  }
+
+  @media (max-width: 791px) {
+    max-width: 396px;
+  }
 }
 
 .products-grid-item-wrapper {
