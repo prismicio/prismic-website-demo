@@ -1,33 +1,37 @@
     </main>
 
-    <footer class="footer">
-      <div class="footer-inner">
-        <div>
-          <p class="footer-name">
-            <%= layoutContent.site_name %>
-          </p>
-          <div class="footer-social-items">
-            <% layoutContent.footer_social_items.forEach(function (item) { %>
-              <% const targetAttr = item.link.target ? `target=${item.link.target} rel="noopener"` : ''; %>
-              <a
-                class="footer-social-item"
-                href="<%= linkAsUrl(item.link) %>"
-                <%= targetAttr %>
-              >
-                <img src="<%= item.icon.url %>" alt="<%= item.icon.alt %>"/>
+    <% if (layoutContent.site_name && layoutContent.footer_nav_items.length > 0) { %>
+      <footer class="footer">
+        <div class="footer-inner">
+          <div>
+            <p class="footer-name">
+              <%= layoutContent.site_name %>
+            </p>
+            <% if (layoutContent.footer_social_items.length > 0) { %>
+              <div class="footer-social-items">
+                <% layoutContent.footer_social_items.forEach(function (item) { %>
+                  <% const targetAttr = item.link.target ? `target=${item.link.target} rel="noopener"` : ''; %>
+                  <a
+                    class="footer-social-item"
+                    href="<%= linkAsUrl(item.link) %>"
+                    <%= targetAttr %>
+                  >
+                    <img src="<%= item.icon.url %>" alt="<%= item.icon.alt %>"/>
+                  </a>
+                <% }); %>
+              </div>
+            <% } %>
+          </div>
+          <nav class="footer-nav">
+            <% layoutContent.footer_nav_items.forEach(function (item) { %>
+              <a class="footer-nav-link" href="<%= linkAsUrl(item.link) %>">
+                <%= item.text %>
               </a>
             <% }); %>
-          </div>
+          </nav>
         </div>
-        <nav class="footer-nav">
-          <% layoutContent.footer_nav_items.forEach(function (item) { %>
-            <a class="footer-nav-link" href="<%= linkAsUrl(item.link) %>">
-              <%= item.text %>
-            </a>
-          <% }); %>
-        </nav>
-      </div>
-    </footer>
+      </footer>
+    <% } %>
 
     <script src="/bundles/main.js"></script>
 
