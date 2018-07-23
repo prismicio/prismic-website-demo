@@ -65,7 +65,7 @@ router.get('/products/:uid', function (req, res, next) {
     });
 });
 
-/* GET blog. */
+/* GET blog home. */
 router.get('/blog', function (req, res, next) {
   const queryBlogHomeDocument = req.prismic.api.getSingle('blog_home');
   const queryBlogPostDocuments = req.prismic.api.query(prismicJS.Predicates.at('document.type', 'blog_post'), { pageSize: 10 });
@@ -83,6 +83,22 @@ router.get('/blog', function (req, res, next) {
     })
     .catch((error) => {
       next(`Error when retrieving documents from Prismic. ${error.message}`);
+    });
+});
+
+/* GET blog post. */
+router.get('/blog/:uid', function (req, res, next) {
+  req.prismic.api.getByUID('blog_post', req.params.uid)
+    .then((document) => {
+      const meta = {
+        title: prismicDOM.RichText.asText(document.data.meta_title),
+        description: prismicDOM.RichText.asText(document.data.meta_description)
+      };
+
+      res.render('blog-post', { document, meta });
+    })
+    .catch((error) => {
+      next(`Error when retrieving "blog_post" document from Prismic. ${error.message}`);
     });
 });
 
