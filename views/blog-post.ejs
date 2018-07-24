@@ -6,25 +6,27 @@
 
 <article class="blog-post-article">
   <div class="blog-post-inner">
-    <div class="blog-post-image-wrapper">
-      <img class="blog-post-image" src="<%= document.data.image.url %>" alt="<%= document.data.image.alt %>"/>
-    </div>
+    <% if (document.data.image.url) { %>
+      <div class="blog-post-image-wrapper">
+        <img class="blog-post-image" src="<%= document.data.image.url %>" alt="<%= document.data.image.alt %>"/>
+      </div>
+    <% } %>
     <div class="blog-post-title">
       <%- richTextAsHtml(document.data.title) %>
     </div>
     <div class="blog-post-rich-content">
       <%- richTextAsHtml(document.data.rich_content) %>
     </div>
-    <% if (document.data.author.data && document.data.author.data.name) { %>
+    <% if (document.data.author.data) { %>
       <div class="blog-post-author-wrapper">
         <% if (document.data.author.data.picture) { %>
           <img class="blog-post-author-picture" src="<%= document.data.author.data.picture.url %>" alt="<%= document.data.author.data.picture.alt %>"/>
         <% } %>
         <div>
           <p class="blog-post-author-name">
-            <%= document.data.author.data.name %>
+            <%= richTextAsPlain(document.data.author.data.name) %>
           </p>
-          <% if (document.data.author.data.bio) { %>
+          <% if (document.data.author.data.bio[0].text) { %>
             <p class="blog-post-author-bio">
               <%= richTextAsPlain(document.data.author.data.bio) %>
             </p>
