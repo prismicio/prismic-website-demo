@@ -18,7 +18,7 @@
           </p>
           <div class="blog-home-post-button-wrapper">
             <a class="a-button" href="<%= linkResolver(document) %>">
-              <%= blogHomeDocument.data.read_post_button_text %>
+              Read post
             </a>
           </div>
         <article>
@@ -26,5 +26,7 @@
     <% }); %>
   </div>
 </section>
+
+<div data-wio-id="<%= blogHomeDocument.id %>"></div>
 
 <%- include('partials/footer'); %>
