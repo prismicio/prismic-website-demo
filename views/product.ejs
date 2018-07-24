@@ -54,15 +54,19 @@
     </div>
     <div class="products-grid-items-wrapper">
       <% document.data.related_products.forEach(function (item) { %>
-        <div class="products-grid-item-wrapper">
-          <img class="products-grid-item-image" src="<%= item.product1.data.product_image.url %>" alt="<%= item.product1.data.product_image.alt %>"/>
-          <p class="products-grid-item-name">
-            <a href="<%= linkAsUrl(item.product1) %>">
-              <%= richTextAsPlain(item.product1.data.product_name) %>
-            </a>
-          </p>
-          <p class="products-grid-item-subtitle"><%= richTextAsPlain(item.product1.data.sub_title) %></p>
-        </div>
+        <% if (item.product1.data) { %>
+          <div class="products-grid-item-wrapper">
+            <% if (item.product1.data.product_image) { %>
+              <img class="products-grid-item-image" src="<%= item.product1.data.product_image.url %>" alt="<%= item.product1.data.product_image.alt %>"/>
+            <% } %>
+            <p class="products-grid-item-name">
+              <a href="<%= linkAsUrl(item.product1) %>">
+                <%= richTextAsPlain(item.product1.data.product_name) %>
+              </a>
+            </p>
+            <p class="products-grid-item-subtitle"><%= richTextAsPlain(item.product1.data.sub_title) %></p>
+          </div>
+        <% } %>
       <% }); %>
     </div>
   </section>

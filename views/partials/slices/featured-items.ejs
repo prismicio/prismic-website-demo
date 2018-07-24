@@ -13,15 +13,19 @@
   </div>
   <div class="products-grid-items-wrapper">
     <% slice.items.forEach(function (item) { %>
-      <div class="products-grid-item-wrapper">
-        <img class="products-grid-item-image" src="<%= item.link_to_product.data.product_image.url %>" alt="<%= item.link_to_product.data.product_image.alt %>"/>
-        <p class="products-grid-item-name">
-          <a href="<%= linkAsUrl(item.link_to_product) %>">
-            <%= richTextAsPlain(item.link_to_product.data.product_name) %>
-          </a>
-        </p>
-        <p class="products-grid-item-subtitle"><%= richTextAsPlain(item.link_to_product.data.sub_title) %></p>
-      </div>
+      <% if (item.link_to_product.data) { %>
+        <div class="products-grid-item-wrapper">
+          <% if (item.link_to_product.data.product_image) { %>
+            <img class="products-grid-item-image" src="<%= item.link_to_product.data.product_image.url %>" alt="<%= item.link_to_product.data.product_image.alt %>"/>
+          <% } %>
+          <p class="products-grid-item-name">
+            <a href="<%= linkAsUrl(item.link_to_product) %>">
+              <%= richTextAsPlain(item.link_to_product.data.product_name) %>
+            </a>
+          </p>
+          <p class="products-grid-item-subtitle"><%= richTextAsPlain(item.link_to_product.data.sub_title) %></p>
+        </div>
+      <% } %>
     <% }); %>
   </div>
 </section>

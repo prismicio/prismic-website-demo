@@ -26,11 +26,9 @@
           <p class="blog-post-author-name">
             <%= richTextAsPlain(document.data.author.data.name) %>
           </p>
-          <% if (document.data.author.data.bio[0].text) { %>
-            <p class="blog-post-author-bio">
-              <%= richTextAsPlain(document.data.author.data.bio) %>
-            </p>
-          <% } %>
+          <p class="blog-post-author-bio">
+            <%= richTextAsPlain(document.data.author.data.bio) %>
+          </p>
         </div>
       </div>
     <% } %>
