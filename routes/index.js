@@ -88,7 +88,7 @@ router.get('/blog', function (req, res, next) {
 
 /* GET blog post. */
 router.get('/blog/:uid', function (req, res, next) {
-  req.prismic.api.getByUID('blog_post', req.params.uid)
+  req.prismic.api.getByUID('blog_post', req.params.uid, { fetchLinks: ['author.name', 'author.bio', 'author.picture'] })
     .then((document) => {
       const meta = {
         title: prismicDOM.RichText.asText(document.data.meta_title),

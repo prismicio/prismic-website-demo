@@ -15,6 +15,23 @@
     <div class="blog-post-rich-content">
       <%- richTextAsHtml(document.data.rich_content) %>
     </div>
+    <% if (document.data.author.data && document.data.author.data.name) { %>
+      <div class="blog-post-author-wrapper">
+        <% if (document.data.author.data.picture) { %>
+          <img class="blog-post-author-picture" src="<%= document.data.author.data.picture.url %>" alt="<%= document.data.author.data.picture.alt %>"/>
+        <% } %>
+        <div>
+          <p class="blog-post-author-name">
+            <%= document.data.author.data.name %>
+          </p>
+          <% if (document.data.author.data.bio) { %>
+            <p class="blog-post-author-bio">
+              <%= richTextAsPlain(document.data.author.data.bio) %>
+            </p>
+          <% } %>
+        </div>
+      </div>
+    <% } %>
   </div>
 </article>
 
