@@ -9,7 +9,6 @@ const prismicJS = require('prismic-javascript');
 const prismicConfig = require('./prismic.config.js');
 const linkResolver = require('./link-resolver');
 const indexRouter = require('./routes/index');
-const usersRouter = require('./routes/users');
 
 const app = express();
 
@@ -61,7 +60,6 @@ app.use(function (req, res, next) {
 
 // routes
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
