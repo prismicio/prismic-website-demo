@@ -1,24 +1,38 @@
 .banner-split-image {
+  margin-bottom: 70px;
   width: 100%;
 }
 
 .banner-split-content-wrapper {
   display: flex;
   justify-content: space-between;
-  margin-top: 30px;
+  font-family: $font-mono;
+
+  @media (max-width: 1190px) {
+    display: block;
+    text-align: center;
+  }
 }
 
 .banner-split-title {
   max-width: 564px;
-  font-family: $font-mono;
   font-size: 28px;
   font-weight: 700;
   line-height: 1.786;
+
+  @media (max-width: 1190px) {
+    max-width: 764px;
+    margin: 0 auto;
+  }
 }
 
 .banner-split-text {
   max-width: 564px;
-  font-family: $font-mono;
   font-size: 17px;
   line-height: 2.353;
+
+  @media (max-width: 1190px) {
+    max-width: 764px;
+    margin: 30px auto 0;
+  }
 }
