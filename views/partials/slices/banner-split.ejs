@@ -1,0 +1,13 @@
+<section>
+  <div class="l-wrapper">
+    <img class="banner-split-image" src="<%= slice.primary.banner_image.url %>" alt="<%= slice.primary.banner_image.alt %>"/>
+    <div class="banner-split-content-wrapper">
+      <div class="banner-split-title">
+        <%- richTextAsHtml(slice.primary.banner_title) %>
+      </div>
+      <div class="banner-split-text">
+        <%- richTextAsHtml(slice.primary.banner_text) %>
+      </div>
+    </div>
+  </div>
+</section>

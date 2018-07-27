@@ -1,12 +1,22 @@
 .lp-header {
-  padding: 90px 15px 50px;
+  padding: 90px 15px 0;
 }
 
-.lp-header-title {
+.lp-title {
   max-width: 764px;
   margin: 0 auto;
   font-family: $font-mono;
   font-size: 28px;
   line-height: 1.786;
   text-align: center;
+}
+
+.lp-slices-wrapper {
+  padding: 130px 0 200px;
+}
+
+.lp-slice-wrapper {
+  &:not(:first-child) {
+    margin-top: 130px;
+  }
 }
