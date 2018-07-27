@@ -76,6 +76,17 @@ router.get('/blog/:uid', function (req, res, next) {
     });
 });
 
+/* GET landing page. */
+router.get('/pages/:uid', function (req, res, next) {
+  req.prismic.api.getByUID('landing_page', req.params.uid)
+    .then((document) => {
+      res.render('landing-page', { document });
+    })
+    .catch((error) => {
+      next(`Error when retrieving "landing_page" document from Prismic. ${error.message}`);
+    });
+});
+
 /* In-Website Preview by Prismic. */
 router.get('/preview', function (req, res) {
   req.prismic.api.previewSession(req.query.token, linkResolver, '/')

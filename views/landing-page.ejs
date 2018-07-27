@@ -1,0 +1,22 @@
+<%-
+include('partials/header', {
+  meta: {
+    title: richTextAsPlain(document.data.meta_title),
+    description: richTextAsPlain(document.data.meta_description)
+  }
+});
+%>
+
+<div class="l-wrapper">
+  <hr class="separator-hr"/>
+</div>
+
+<header class="lp-header">
+  <div class="lp-header-title">
+    <%- richTextAsHtml(document.data.title) %>
+  </div>
+</header>
+
+<div data-wio-id="<%= document.id %>"></div>
+
+<%- include('partials/footer'); %>
