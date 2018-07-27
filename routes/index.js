@@ -1,6 +1,5 @@
 const express = require('express');
 const prismicJS = require('prismic-javascript');
-const prismicDOM = require('prismic-dom');
 const Cookies = require('cookies');
 
 const linkResolver = require('../link-resolver');
@@ -16,12 +15,7 @@ const productFetchLinks = [
 router.get('/', function (req, res, next) {
   req.prismic.api.getSingle('homepage', { fetchLinks: productFetchLinks })
     .then((document) => {
-      const meta = {
-        title: prismicDOM.RichText.asText(document.data.meta_title),
-        description: prismicDOM.RichText.asText(document.data.meta_description)
-      };
-
-      res.render('homepage', { document, meta });
+      res.render('homepage', { document });
     })
     .catch((error) => {
       next(`Error when retrieving "homepage" document from Prismic. ${error.message}`);
@@ -37,12 +31,7 @@ router.get('/products', function (req, res, next) {
     .then((values) => {
       const productsDocument = values[0];
       const productDocuments = values[1].results;
-      const meta = {
-        title: prismicDOM.RichText.asText(productsDocument.data.meta_title),
-        description: prismicDOM.RichText.asText(productsDocument.data.meta_description)
-      };
-
-      res.render('products', { productsDocument, productDocuments, meta });
+      res.render('products', { productsDocument, productDocuments });
     })
     .catch((error) => {
       next(`Error when retrieving documents from Prismic. ${error.message}`);
@@ -53,12 +42,7 @@ router.get('/products', function (req, res, next) {
 router.get('/products/:uid', function (req, res, next) {
   req.prismic.api.getByUID('product', req.params.uid, { fetchLinks: productFetchLinks })
     .then((document) => {
-      const meta = {
-        title: prismicDOM.RichText.asText(document.data.meta_title),
-        description: prismicDOM.RichText.asText(document.data.meta_description)
-      };
-
-      res.render('product', { document, meta });
+      res.render('product', { document });
     })
     .catch((error) => {
       next(`Error when retrieving "product" document from Prismic. ${error.message}`);
@@ -74,12 +58,7 @@ router.get('/blog', function (req, res, next) {
     .then((values) => {
       const blogHomeDocument = values[0];
       const blogPostDocuments = values[1].results;
-      const meta = {
-        title: prismicDOM.RichText.asText(blogHomeDocument.data.meta_title),
-        description: prismicDOM.RichText.asText(blogHomeDocument.data.meta_description)
-      };
-
-      res.render('blog-home', { blogHomeDocument, blogPostDocuments, meta });
+      res.render('blog-home', { blogHomeDocument, blogPostDocuments });
     })
     .catch((error) => {
       next(`Error when retrieving documents from Prismic. ${error.message}`);
@@ -90,12 +69,7 @@ router.get('/blog', function (req, res, next) {
 router.get('/blog/:uid', function (req, res, next) {
   req.prismic.api.getByUID('blog_post', req.params.uid, { fetchLinks: ['author.name', 'author.bio', 'author.picture'] })
     .then((document) => {
-      const meta = {
-        title: prismicDOM.RichText.asText(document.data.meta_title),
-        description: prismicDOM.RichText.asText(document.data.meta_description)
-      };
-
-      res.render('blog-post', { document, meta });
+      res.render('blog-post', { document });
     })
     .catch((error) => {
       next(`Error when retrieving "blog_post" document from Prismic. ${error.message}`);

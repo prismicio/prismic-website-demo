@@ -1,4 +1,11 @@
-<%- include('partials/header'); %>
+<%-
+include('partials/header', {
+  meta: {
+    title: richTextAsPlain(productsDocument.data.meta_title),
+    description: richTextAsPlain(productsDocument.data.meta_description)
+  }
+});
+%>
 
 <div class="l-wrapper">
   <hr class="separator-hr"/>

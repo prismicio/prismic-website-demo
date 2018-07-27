@@ -3,8 +3,12 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title><%= meta.title || 'Disrupt Coffee' %></title>
-    <% if (meta.description) { %>
+    <% if (locals.meta && meta.title) { %>
+      <title><%= meta.title %></title>
+    <% } else { %>
+      <title>Disrupt Coffee</title>
+    <% } %>
+    <% if (locals.meta && meta.description) { %>
       <meta name="description" content="<%= meta.description %>"/>
     <% } %>
     <meta name="author" content="Prismic">

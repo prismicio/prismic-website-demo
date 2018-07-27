@@ -1,4 +1,11 @@
-<%- include('partials/header'); %>
+<%-
+include('partials/header', {
+  meta: {
+    title: richTextAsPlain(document.data.meta_title),
+    description: richTextAsPlain(document.data.meta_description)
+  }
+});
+%>
 
 <header class="homepage-header">
   <div class="l-wrapper">
