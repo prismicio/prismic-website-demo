@@ -5,7 +5,7 @@
 .homepage-header {
   padding: 80px 0 100px;
 
-  @media (max-width: 565px) {
+  @media (max-width: 564px) {
     padding: 60px 0;
   }
 }
@@ -16,7 +16,7 @@
   font-size: 28px;
   line-height: 1.786;
 
-  @media (max-width: 565px) {
+  @media (max-width: 564px) {
     font-size: 22px;
     line-height: 1.909;
   }
@@ -67,7 +67,7 @@
   position: relative;
   top: 180px;
   width: 100%;
-  max-width: 565px;
+  max-width: 564px;
   margin-left: auto;
   padding: 70px;
   background-color: #121212;
@@ -82,7 +82,7 @@
     margin-left: 0;
   }
 
-  @media (max-width: 565px) {
+  @media (max-width: 564px) {
     padding: 60px;
     font-size: 16px;
     line-height: 2.25;
@@ -91,7 +91,7 @@
   p:not(:first-child) {
     margin-top: 40px;
 
-    @media (max-width: 565px) {
+    @media (max-width: 564px) {
       margin-top: 30px;
     }
   }
