@@ -1,10 +1,14 @@
 .product-quote-inner {
   position: relative;
+
+  @media (max-width: 1190px) {
+    text-align: center;
+  }
 }
 
 .product-quote-box {
   width: 664px;
-  height: 522px;
+  height: 520px;
   padding: 64px 74px;
   background: #121212 no-repeat center;
   background-size: cover;
@@ -13,6 +17,17 @@
   .product-quote-inner--reverse & {
     margin-left: auto;
   }
+
+  @media (max-width: 1190px) {
+    max-width: 520px;
+    width: 100%;
+    height: auto;
+    margin: 0 auto;
+  }
+
+  @media (max-width: 550px) {
+    padding: 30px;
+  }
 }
 
 .product-quote-box-quote-text {
@@ -20,6 +35,11 @@
   font-size: 28px;
   font-weight: 700;
   line-height: 1.786;
+
+  @media (max-width: 550px) {
+    font-size: 22px;
+    line-height: 1.909;
+  }
 }
 
 .product-quote-box-quote-author {
@@ -36,6 +56,10 @@
   .product-quote-inner--reverse & {
     margin-left: auto;
   }
+
+  @media (max-width: 1190px) {
+    margin: 70px auto 0;
+  }
 }
 
 .product-quote-product-image {
@@ -49,5 +73,9 @@
   .product-quote-inner--reverse & {
     right: none;
     left: 0;
+  }
+
+  @media (max-width: 1190px) {
+    display: none;
   }
 }
