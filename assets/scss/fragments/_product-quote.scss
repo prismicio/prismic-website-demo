@@ -1,0 +1,40 @@
+.product-quote-wrapper {
+  position: relative;
+}
+
+.product-quote-box {
+  width: 664px;
+  height: 522px;
+  padding: 64px 74px;
+  background: #121212 no-repeat center;
+  background-size: cover;
+  color: white;
+}
+
+.product-quote-box-quote-text {
+  font-family: $font-mono;
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 1.786;
+}
+
+.product-quote-box-quote-author {
+  margin-top: 20px;
+}
+
+.product-quote-product-description {
+  margin-top: 114px;
+  max-width: 520px;
+  font-family: $font-mono;
+  font-size: 17px;
+  line-height: 2.353;
+}
+
+.product-quote-product-image {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 564px;
+  height: 564px;
+  object-fit: cover;
+}

@@ -1,0 +1,18 @@
+<section>
+  <div class="l-wrapper">
+    <div class="product-quote-wrapper">
+      <div class="product-quote-box" style="background-image: url(<%= slice.primary.quote_background.url %>);">
+        <div class="product-quote-box-quote-text">
+          <%- richTextAsHtml(slice.primary.quote_text) %>
+        </div>
+        <div class="product-quote-box-quote-author">
+          <%- richTextAsHtml(slice.primary.quote_author) %>
+        </div>
+      </div>
+      <div class="product-quote-product-description">
+        <%- richTextAsHtml(slice.primary.product_description) %>
+      </div>
+      <img class="product-quote-product-image" src="<%= slice.primary.product_image.url %>" alt="<%= slice.primary.product_image.alt %>"/>
+    </div>
+  </div>
+</section>

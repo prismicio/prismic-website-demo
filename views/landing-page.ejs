@@ -19,13 +19,17 @@ include('partials/header', {
 
 <div class="lp-slices-wrapper">
   <% document.data.body.forEach(function (slice) { %>
-    <% if (slice.slice_type === 'big_bullet_item') { %>
+    <% if (slice.slice_type === 'banner_split') { %>
+      <div class="lp-slice-wrapper">
+        <%- include('partials/slices/banner-split', { slice }); %>
+      </div>
+    <% } else if (slice.slice_type === 'big_bullet_item') { %>
       <div class="lp-slice-wrapper">
         <%- include('partials/slices/numeroted-items', { slice }); %>
       </div>
-    <% } else if (slice.slice_type === 'banner_split') { %>
+    <% } else if (slice.slice_type === 'product_quote') { %>
       <div class="lp-slice-wrapper">
-        <%- include('partials/slices/banner-split', { slice }); %>
+        <%- include('partials/slices/product-quote', { slice }); %>
       </div>
     <% } %>
   <% }); %>
