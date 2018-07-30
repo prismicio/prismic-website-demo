@@ -1,6 +1,6 @@
 <section>
   <div class="l-wrapper">
-    <div class="product-quote-wrapper">
+    <div class="product-quote-inner <%= slice.slice_label === 'reverse' ? 'product-quote-inner--reverse' : '' %>">
       <div class="product-quote-box" style="background-image: url(<%= slice.primary.quote_background.url %>);">
         <div class="product-quote-box-quote-text">
           <%- richTextAsHtml(slice.primary.quote_text) %>

@@ -1,4 +1,4 @@
-.product-quote-wrapper {
+.product-quote-inner {
   position: relative;
 }
 
@@ -9,6 +9,10 @@
   background: #121212 no-repeat center;
   background-size: cover;
   color: white;
+
+  .product-quote-inner--reverse & {
+    margin-left: auto;
+  }
 }
 
 .product-quote-box-quote-text {
@@ -28,6 +32,10 @@
   font-family: $font-mono;
   font-size: 17px;
   line-height: 2.353;
+
+  .product-quote-inner--reverse & {
+    margin-left: auto;
+  }
 }
 
 .product-quote-product-image {
@@ -37,4 +45,9 @@
   width: 564px;
   height: 564px;
   object-fit: cover;
+
+  .product-quote-inner--reverse & {
+    right: none;
+    left: 0;
+  }
 }
