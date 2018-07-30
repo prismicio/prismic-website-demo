@@ -14,6 +14,9 @@ const linkResolver = function (doc) {
   if (doc.type === 'blog_post') {
     return '/blog/' + doc.uid;
   }
+  if (doc.type === 'landing_page') {
+    return '/pages/' + doc.uid;
+  }
   return '/';
 };
 
