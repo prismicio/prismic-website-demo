@@ -82,15 +82,8 @@
               "image_banner" : {
                 "type" : "Image",
                 "config" : {
-                  "constraint" : {
-                    "width" : 1330,
-                    "height" : 1330
-                  },
-                  "thumbnails" : [ {
-                    "name" : "mobile",
-                    "width" : 665,
-                    "height" : 665
-                  } ],
+                  "constraint" : { },
+                  "thumbnails" : [ ],
                   "label" : "Image Banner"
                 }
               },
@@ -232,33 +225,6 @@
       "fieldset" : "Slice zone",
       "config" : {
         "choices" : {
-          "big_bullet_item" : {
-            "type" : "Slice",
-            "fieldset" : "Item with numbers",
-            "description" : "1 number and description in a grid layout",
-            "icon" : "filter_1",
-            "display" : "grid",
-            "non-repeat" : {
-              "title_section" : {
-                "type" : "StructuredText",
-                "config" : {
-                  "single" : "heading2",
-                  "label" : "Title Section",
-                  "placeholder" : "How it works ..."
-                }
-              }
-            },
-            "repeat" : {
-              "description_paragraph" : {
-                "type" : "StructuredText",
-                "config" : {
-                  "multi" : "paragraph, strong, em",
-                  "label" : "Description paragraph",
-                  "placeholder" : "Select some amazing coffee"
-                }
-              }
-            }
-          },
           "twitter_card" : {
             "type" : "Slice",
             "fieldset" : "Twitter card",

@@ -3,15 +3,8 @@
     "product_image" : {
       "type" : "Image",
       "config" : {
-        "constraint" : {
-          "width" : 1130,
-          "height" : 1130
-        },
-        "thumbnails" : [ {
-          "name" : "medium",
-          "width" : 800,
-          "height" : 800
-        } ],
+        "constraint" : { },
+        "thumbnails" : [ ],
         "label" : "Product Image"
       }
     },
