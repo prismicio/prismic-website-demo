@@ -6,7 +6,7 @@ const logger = require('morgan');
 const prismicDOM = require('prismic-dom');
 const prismicJS = require('prismic-javascript');
 
-const prismicConfig = require('./prismic.config.js');
+const prismicConfig = require('./prismic-configuration.js');
 const linkResolver = require('./link-resolver');
 const indexRouter = require('./routes/index');
 
