@@ -5,15 +5,63 @@ const Cookies = require('cookies');
 const linkResolver = require('../link-resolver');
 
 const router = express.Router();
-const productFetchLinks = [
-  'product.product_image',
-  'product.product_name',
-  'product.sub_title'
-];
 
 /* GET homepage. */
 router.get('/', function (req, res, next) {
-  req.prismic.api.getSingle('homepage', { fetchLinks: productFetchLinks })
+  const graphQuery = `{
+    homepage {
+      ...homepageFields
+      body {
+        ...on featured_items {
+          non-repeat {
+            ...non-repeatFields
+          }
+          repeat {
+            ...repeatFields
+            link_to_product {
+              product_image
+              product_name
+              sub_title
+            }
+          }
+        }
+        ...on cta_banner {
+          non-repeat {
+            ...non-repeatFields
+          }
+          repeat {
+            ...repeatFields
+          }
+        }
+        ...on big_bullet_item {
+          non-repeat {
+            ...non-repeatFields
+          }
+          repeat {
+            ...repeatFields
+          }
+        }
+        ...on separator {
+          non-repeat {
+            ...non-repeatFields
+          }
+          repeat {
+            ...repeatFields
+          }
+        }
+        ...on text_block {
+          non-repeat {
+            ...non-repeatFields
+          }
+          repeat {
+            ...repeatFields
+          }
+        }
+      }
+    }
+  }`;
+
+  req.prismic.api.getSingle('homepage', { graphQuery })
     .then((document) => {
       res.render('homepage', { document });
     })
@@ -40,7 +88,21 @@ router.get('/products', function (req, res, next) {
 
 /* GET product. */
 router.get('/products/:uid', function (req, res, next) {
-  req.prismic.api.getByUID('product', req.params.uid, { fetchLinks: productFetchLinks })
+  const graphQuery = `{
+    product {
+      ...productFields
+      related_products {
+        ...related_productsFields
+        product1 {
+          product_image
+          product_name
+          sub_title
+        }
+      }
+    }
+  }`;
+
+  req.prismic.api.getByUID('product', req.params.uid, { graphQuery })
     .then((document) => {
       res.render('product', { document });
     })
@@ -67,7 +129,18 @@ router.get('/blog', function (req, res, next) {
 
 /* GET blog post. */
 router.get('/blog/:uid', function (req, res, next) {
-  req.prismic.api.getByUID('blog_post', req.params.uid, { fetchLinks: ['author.name', 'author.bio', 'author.picture'] })
+  const graphQuery = `{
+    blog_post {
+      ...blog_postFields
+      author {
+        name
+        bio
+        picture
+      }
+    }
+  }`;
+
+  req.prismic.api.getByUID('blog_post', req.params.uid, { graphQuery })
     .then((document) => {
       res.render('blog-post', { document });
     })
