@@ -39,40 +39,34 @@
   }
 }
 
-.product-hero-name {
+.product-hero-title {
   font-family: $font-mono;
   font-size: 28px;
   font-weight: 700;
   line-height: 1.786;
 }
 
-.product-hero-rich-content {
+.product-hero-subtitle {
   margin-top: 20px;
+  font-family: $font-mono;
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 1.818;
+}
+
+.product-hero-list {
+  margin-top: 10px;
+  padding-left: 30px;
   font-family: $font-mono;
   font-size: 16px;
   line-height: 2.5;
+}
 
-  h2 {
-    &:not(:first-child) {
-      margin-top: 20px;
-    }
-
-    font-size: 22px;
-    font-weight: 700;
-    line-height: 1.818;
-  }
-
-  p:not(:first-child) {
-    margin-top: 10px;
-  }
-
-  ul {
-    &:not(:first-child) {
-      margin-top: 10px;
-    }
-
-    padding-left: 30px;
-  }
+.product-hero-paragraph {
+  margin-top: 10px;
+  font-family: $font-mono;
+  font-size: 16px;
+  line-height: 2.5;
 }
 
 .product-hero-button-wrapper {

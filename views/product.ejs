@@ -16,14 +16,35 @@ include('partials/header', {
   <section>
     <div class="l-wrapper">
       <div class="product-hero-inner">
-        <img class="product-hero-image" src="<%= document.data.product_image.url %>" alt="<%= document.data.product_image.alt %>"/>
+        <img class="product-hero-image" src="<%= document.data.product.image_url %>" alt="<%= document.data.product.title %>"/>
         <div class="product-hero-content">
-          <div class="product-hero-name">
-            <%- richTextAsHtml(document.data.product_name) %>
-          </div>
-          <div class="product-hero-rich-content">
-            <%- richTextAsHtml(document.data.rich_content) %>
-          </div>
+          <h1 class="product-hero-title">
+            <%= document.data.product.title %>
+          </h1>
+          <h2 class="product-hero-subtitle">
+            <%= document.data.product.country %>
+          </h2>
+          <ul class="product-hero-list">
+            <li>
+              <%= document.data.product.price %> per <%= document.data.product.weight %>
+            </li>
+            <li>
+              Taste &amp; Notes: <%= document.data.product.taste %>
+            </li>
+            <li>
+              Origin: <%= document.data.product.origin %>
+            </li>
+            <li>
+              Varietal: <%= document.data.product.varietal %>
+            </li>
+            <li>
+              Process: <%= document.data.product.process %>
+            </li>
+          </ul>
+          <h2 class="product-hero-subtitle">Shipping</h2>
+          <p class="product-hero-paragraph">
+            <%= document.data.product.shipping %>
+          </p>
           <div class="product-hero-button-wrapper">
             <a class="a-button a-button--filled" href="<%= linkAsUrl(document.data.button_link) %>">
               <%= richTextAsPlain(document.data.button_label) %>
