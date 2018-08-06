@@ -14,19 +14,17 @@
   <div class="products-grid-items-wrapper">
     <% slice.items.forEach(function (item) { %>
       <% if (item.link_to_product.data) { %>
-        <div class="products-grid-item-wrapper">
+        <a class="products-grid-item-wrapper" href="<%= linkAsUrl(item.link_to_product) %>">
           <% if (item.link_to_product.data.product_image) { %>
             <img class="products-grid-item-image" src="<%= item.link_to_product.data.product_image.url %>" alt="<%= item.link_to_product.data.product_image.alt %>"/>
           <% } %>
           <p class="products-grid-item-name">
-            <a href="<%= linkAsUrl(item.link_to_product) %>">
-              <%= richTextAsPlain(item.link_to_product.data.product_name) %>
-            </a>
+            <%= richTextAsPlain(item.link_to_product.data.product_name) %>
           </p>
           <p class="products-grid-item-subtitle">
             <%= richTextAsPlain(item.link_to_product.data.sub_title) %>
           </p>
-        </div>
+        </a>
       <% } %>
     <% }); %>
   </div>

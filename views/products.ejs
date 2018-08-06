@@ -21,15 +21,13 @@ include('partials/header', {
   </div>
   <div class="products-grid-items-wrapper">
     <% productDocuments.forEach(function (document) { %>
-      <div class="products-grid-item-wrapper">
+      <a class="products-grid-item-wrapper" href="<%= linkResolver(document) %>">
         <img class="products-grid-item-image" src="<%= document.data.product_image.url %>" alt="<%= document.data.product_image.alt %>"/>
         <p class="products-grid-item-name">
-          <a href="<%= linkResolver(document) %>">
-            <%= richTextAsPlain(document.data.product_name) %>
-          </a>
+          <%= richTextAsPlain(document.data.product_name) %>
         </p>
         <p class="products-grid-item-subtitle"><%= richTextAsPlain(document.data.sub_title) %></p>
-      </div>
+      </a>
     <% }); %>
   </div>
 </section>

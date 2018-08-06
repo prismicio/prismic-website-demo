@@ -62,17 +62,15 @@ include('partials/header', {
     <div class="products-grid-items-wrapper">
       <% document.data.related_products.forEach(function (item) { %>
         <% if (item.product1.data) { %>
-          <div class="products-grid-item-wrapper">
+          <a class="products-grid-item-wrapper" href="<%= linkAsUrl(item.product1) %>">
             <% if (item.product1.data.product_image) { %>
               <img class="products-grid-item-image" src="<%= item.product1.data.product_image.url %>" alt="<%= item.product1.data.product_image.alt %>"/>
             <% } %>
             <p class="products-grid-item-name">
-              <a href="<%= linkAsUrl(item.product1) %>">
-                <%= richTextAsPlain(item.product1.data.product_name) %>
-              </a>
+              <%= richTextAsPlain(item.product1.data.product_name) %>
             </p>
             <p class="products-grid-item-subtitle"><%= richTextAsPlain(item.product1.data.sub_title) %></p>
-          </div>
+          </a>
         <% } %>
       <% }); %>
     </div>
