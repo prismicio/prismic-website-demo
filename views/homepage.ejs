@@ -32,7 +32,7 @@ include('partials/header', {
       </div>
     <% } else if (slice.slice_type === 'featured_items') { %>
       <div class="homepage-slice-wrapper">
-        <%- include('partials/slices/featured-items', { slice }); %>
+        <%- include('partials/slices/products-grid', { slice }); %>
       </div>
     <% } else if (slice.slice_type === 'big_bullet_item') { %>
       <div class="homepage-slice-wrapper">
