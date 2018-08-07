@@ -11,6 +11,7 @@
   white-space: nowrap;
   transition-property: background-color, color;
   transition-duration: 150ms;
+  outline: none;
 
   &:hover {
     background-color: #121212;

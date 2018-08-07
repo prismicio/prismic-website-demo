@@ -46,9 +46,11 @@ include('partials/header', {
             <%= document.data.product.shipping %>
           </p>
           <div class="product-hero-button-wrapper">
-            <a class="a-button a-button--filled" href="<%= linkAsUrl(document.data.button_link) %>">
+            <button
+              class="a-button a-button--filled"
+              onclick="alert('We\'re integrating the GraphQL API at the moment, so coffee delivery is temporarily unavailable.');">
               <%= richTextAsPlain(document.data.button_label) %>
-            </a>
+            </button>
           </div>
         </div>
       </div>
