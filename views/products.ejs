@@ -22,11 +22,17 @@ include('partials/header', {
   <div class="products-grid-items-wrapper">
     <% productDocuments.forEach(function (document) { %>
       <a class="products-grid-item-wrapper" href="<%= linkResolver(document) %>">
-        <img class="products-grid-item-image" src="<%= document.data.product_image.url %>" alt="<%= document.data.product_image.alt %>"/>
-        <p class="products-grid-item-name">
-          <%= richTextAsPlain(document.data.product_name) %>
+        <img
+          class="products-grid-item-image"
+          src="<%= document.data.product.image_url %>"
+          alt="<%= document.data.product.title %>"
+        />
+        <p class="products-grid-item-title">
+          <%= document.data.product.title %>
         </p>
-        <p class="products-grid-item-subtitle"><%= richTextAsPlain(document.data.sub_title) %></p>
+        <p class="products-grid-item-country">
+          <%= document.data.product.country %>
+        </p>
       </a>
     <% }); %>
   </div>

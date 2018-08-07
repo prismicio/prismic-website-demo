@@ -86,13 +86,17 @@ include('partials/header', {
       <% document.data.related_products.forEach(function (item) { %>
         <% if (item.product1.data) { %>
           <a class="products-grid-item-wrapper" href="<%= linkAsUrl(item.product1) %>">
-            <% if (item.product1.data.product_image) { %>
-              <img class="products-grid-item-image" src="<%= item.product1.data.product_image.url %>" alt="<%= item.product1.data.product_image.alt %>"/>
-            <% } %>
-            <p class="products-grid-item-name">
-              <%= richTextAsPlain(item.product1.data.product_name) %>
+            <img
+              class="products-grid-item-image"
+              src="<%= item.product1.data.product.image_url %>"
+              alt="<%= item.product1.data.product.title %>"
+            />
+            <p class="products-grid-item-title">
+              <%= item.product1.data.product.title %>
             </p>
-            <p class="products-grid-item-subtitle"><%= richTextAsPlain(item.product1.data.sub_title) %></p>
+            <p class="products-grid-item-country">
+              <%= item.product1.data.product.country %>
+            </p>
           </a>
         <% } %>
       <% }); %>
