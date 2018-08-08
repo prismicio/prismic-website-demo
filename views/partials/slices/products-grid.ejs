@@ -17,8 +17,8 @@
         <a class="products-grid-item-wrapper" href="<%= linkAsUrl(item.link_to_product) %>">
           <img
             class="products-grid-item-image"
-            src="<%= item.link_to_product.data.product.image_url %>"
-            alt="<%= item.link_to_product.data.product.title %>"
+            src="<%= item.link_to_product.data.product_image.url %>"
+            alt="<%= item.link_to_product.data.product_image.alt %>"
           />
           <p class="products-grid-item-title">
             <%= item.link_to_product.data.product.title %>

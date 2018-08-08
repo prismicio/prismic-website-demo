@@ -24,8 +24,8 @@ include('partials/header', {
       <a class="products-grid-item-wrapper" href="<%= linkResolver(document) %>">
         <img
           class="products-grid-item-image"
-          src="<%= document.data.product.image_url %>"
-          alt="<%= document.data.product.title %>"
+          src="<%= document.data.product_image.url %>"
+          alt="<%= document.data.product_image.alt %>"
         />
         <p class="products-grid-item-title">
           <%= document.data.product.title %>

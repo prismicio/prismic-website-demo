@@ -19,6 +19,7 @@ router.get('/', function (req, res, next) {
           repeat {
             ...repeatFields
             link_to_product {
+              product_image
               product
             }
           }
@@ -92,6 +93,7 @@ router.get('/products/:uid', function (req, res, next) {
       related_products {
         ...related_productsFields
         product1 {
+          product_image
           product
         }
       }

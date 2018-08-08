@@ -16,7 +16,11 @@ include('partials/header', {
   <section>
     <div class="l-wrapper">
       <div class="product-hero-inner">
-        <img class="product-hero-image" src="<%= document.data.product.image_url %>" alt="<%= document.data.product.title %>"/>
+        <img
+          class="product-hero-image"
+          src="<%= document.data.product_image.url %>"
+          alt="<%= document.data.product_image.alt %>"
+        />
         <div class="product-hero-content">
           <h1 class="product-hero-title">
             <%= document.data.product.title %>
@@ -88,8 +92,8 @@ include('partials/header', {
           <a class="products-grid-item-wrapper" href="<%= linkAsUrl(item.product1) %>">
             <img
               class="products-grid-item-image"
-              src="<%= item.product1.data.product.image_url %>"
-              alt="<%= item.product1.data.product.title %>"
+              src="<%= item.product1.data.product_image.url %>"
+              alt="<%= item.product1.data.product_image.alt %>"
             />
             <p class="products-grid-item-title">
               <%= item.product1.data.product.title %>
