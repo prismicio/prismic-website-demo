@@ -2,7 +2,8 @@
 include('partials/header', {
   meta: {
     title: richTextAsPlain(document.data.meta_title),
-    description: richTextAsPlain(document.data.meta_description)
+    description: richTextAsPlain(document.data.meta_description),
+    social: document.data.social
   }
 });
 %>

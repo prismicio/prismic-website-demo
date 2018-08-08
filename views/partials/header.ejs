@@ -3,18 +3,34 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <% if (locals.meta && meta.title) { %>
       <title><%= meta.title %></title>
     <% } else { %>
       <title>Disrupt Coffee</title>
     <% } %>
+
+    <meta name="author" content="Prismic">
+
     <% if (locals.meta && meta.description) { %>
       <meta name="description" content="<%= meta.description %>"/>
     <% } %>
-    <meta name="author" content="Prismic">
+
+    <% if (locals.meta && meta.social) { %>
+      <% meta.social.forEach(function (slice) { %>
+        <% if (slice.slice_type === 'twitter_card') { %>
+          <meta name="twitter:card" content="summary_large_image">
+          <meta name="twitter:title" content="<%= richTextAsPlain(slice.primary.twitter_title) %>">
+          <meta name="twitter:description" content="<%= richTextAsPlain(slice.primary.twitter_description) %>">
+          <meta name="twitter:image" content="<%= slice.primary.twitter_image.url %>">
+        <% } %>
+      <% }); %>
+    <% } %>
+
     <link href="https://fonts.googleapis.com/css?family=PT+Mono" rel="stylesheet">
     <link href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" rel="stylesheet" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
     <link href="/bundles/main.css" rel="stylesheet">
+
     <script>
       window.prismic = {
         endpoint: '<%= prismicEndpoint %>'

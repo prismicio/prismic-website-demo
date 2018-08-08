@@ -23,38 +23,40 @@
         "placeholder" : "Canonical URL"
       }
     },
-    "body1" : {
+    "social" : {
       "type" : "Slices",
       "fieldset" : "Slice zone",
       "config" : {
         "choices" : {
           "twitter_card" : {
             "type" : "Slice",
-            "fieldset" : "Twitter card",
-            "description" : "Fields you need to customize the Twitter Card",
-            "icon" : "adjust",
+            "fieldset" : "Twitter Card",
+            "description" : "Fields to customize Twitter Card (Summary Card with Large Image)",
+            "icon" : "credit_card",
             "display" : "list",
             "non-repeat" : {
-              "card_title" : {
-                "type" : "Text",
+              "twitter_title" : {
+                "type" : "StructuredText",
                 "config" : {
+                  "single" : "paragraph",
                   "label" : "Title",
-                  "placeholder" : "Title for Twitter"
+                  "placeholder" : "Title for Twitter Card"
                 }
               },
-              "card_description" : {
-                "type" : "Text",
+              "twitter_description" : {
+                "type" : "StructuredText",
                 "config" : {
+                  "single" : "paragraph",
                   "label" : "Description",
-                  "placeholder" : "Description for Twitter"
+                  "placeholder" : "Description for Twitter Card"
                 }
               },
-              "card_image" : {
+              "twitter_image" : {
                 "type" : "Image",
                 "config" : {
                   "constraint" : {
                     "width" : 1200,
-                    "height" : 630
+                    "height" : 675
                   },
                   "thumbnails" : [ ],
                   "label" : "Image"
@@ -63,13 +65,25 @@
             },
             "repeat" : { }
           },
-          "facebook__open_graph_" : {
+          "open_graph" : {
             "type" : "Slice",
-            "fieldset" : "Facebook (Open Graph)",
-            "description" : "Fields to customize OG cards",
+            "fieldset" : "Open Graph",
+            "description" : "Fields to customize Open Graph",
             "icon" : "thumb_up",
             "display" : "list",
-            "non-repeat" : { },
+            "non-repeat" : {
+              "og_image" : {
+                "type" : "Image",
+                "config" : {
+                  "constraint" : {
+                    "width" : 1200,
+                    "height" : 628
+                  },
+                  "thumbnails" : [ ],
+                  "label" : "Image"
+                }
+              }
+            },
             "repeat" : { }
           }
         }
