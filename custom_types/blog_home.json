@@ -16,13 +16,6 @@
         "placeholder" : "Meta description"
       }
     },
-    "canonical_url" : {
-      "type" : "StructuredText",
-      "config" : {
-        "label" : "Canonical URL",
-        "placeholder" : "Canonical URL"
-      }
-    },
     "social" : {
       "type" : "Slices",
       "fieldset" : "Slice zone",
@@ -72,6 +65,22 @@
             "icon" : "thumb_up",
             "display" : "list",
             "non-repeat" : {
+              "og_title" : {
+                "type" : "StructuredText",
+                "config" : {
+                  "single" : "paragraph",
+                  "label" : "Title",
+                  "placeholder" : "Title for Open Graph"
+                }
+              },
+              "og_description" : {
+                "type" : "StructuredText",
+                "config" : {
+                  "single" : "paragraph",
+                  "label" : "Description",
+                  "placeholder" : "Description for Open Graph"
+                }
+              },
               "og_image" : {
                 "type" : "Image",
                 "config" : {

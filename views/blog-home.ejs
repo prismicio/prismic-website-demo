@@ -3,7 +3,8 @@ include('partials/header', {
   meta: {
     title: richTextAsPlain(blogHomeDocument.data.meta_title),
     description: richTextAsPlain(blogHomeDocument.data.meta_description),
-    social: blogHomeDocument.data.social
+    social: blogHomeDocument.data.social,
+    canonicalUrl: getCanonicalUrl(blogHomeDocument)
   }
 });
 %>

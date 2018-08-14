@@ -22,6 +22,14 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+// Add getCanonicalUrl function in locals
+app.use(function (req, res, next) {
+  res.locals.getCanonicalUrl = function (document) {
+    return 'http://' + req.headers.host + linkResolver(document);
+  };
+  next();
+});
+
 // Prismic middleware
 app.use(function (req, res, next) {
   res.locals.prismicEndpoint = prismicConfig.endpoint;
@@ -46,7 +54,7 @@ app.use(function (req, res, next) {
     });
 });
 
-// retrieve layout content
+// retrieve Prismic layout content
 app.use(function (req, res, next) {
   req.prismic.api.getSingle('layout')
     .then((document) => {

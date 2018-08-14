@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
 
     <% if (locals.meta && meta.title) { %>
       <title><%= meta.title %></title>
@@ -10,7 +10,7 @@
       <title>Disrupt Coffee</title>
     <% } %>
 
-    <meta name="author" content="Prismic">
+    <meta name="author" content="Prismic"/>
 
     <% if (locals.meta && meta.description) { %>
       <meta name="description" content="<%= meta.description %>"/>
@@ -19,17 +19,25 @@
     <% if (locals.meta && meta.social) { %>
       <% meta.social.forEach(function (slice) { %>
         <% if (slice.slice_type === 'twitter_card') { %>
-          <meta name="twitter:card" content="summary_large_image">
-          <meta name="twitter:title" content="<%= richTextAsPlain(slice.primary.twitter_title) %>">
-          <meta name="twitter:description" content="<%= richTextAsPlain(slice.primary.twitter_description) %>">
-          <meta name="twitter:image" content="<%= slice.primary.twitter_image.url %>">
+          <meta name="twitter:card" content="summary_large_image"/>
+          <meta name="twitter:title" content="<%= richTextAsPlain(slice.primary.twitter_title) %>"/>
+          <meta name="twitter:description" content="<%= richTextAsPlain(slice.primary.twitter_description) %>"/>
+          <meta name="twitter:image" content="<%= slice.primary.twitter_image.url %>"/>
+        <% } else if (slice.slice_type === 'open_graph') { %>
+          <meta property="og:type" content="website"/>
+          <meta property="og:title" content="<%= richTextAsPlain(slice.primary.og_title) %>"/>
+          <meta property="og:description" content="<%= richTextAsPlain(slice.primary.og_description) %>"/>
+          <meta property="og:image" content="<%= slice.primary.og_image.url %>"/>
+          <% if (meta.canonicalUrl) { %>
+            <meta property="og:url" content="<%= meta.canonicalUrl %>"/>
+          <% } %>
         <% } %>
       <% }); %>
     <% } %>
 
-    <link href="https://fonts.googleapis.com/css?family=PT+Mono" rel="stylesheet">
-    <link href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" rel="stylesheet" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
-    <link href="/bundles/main.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=PT+Mono" rel="stylesheet"/>
+    <link href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" rel="stylesheet" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous"/>
+    <link href="/bundles/main.css" rel="stylesheet"/>
 
     <script>
       window.prismic = {

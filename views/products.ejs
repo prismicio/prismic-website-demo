@@ -3,7 +3,8 @@ include('partials/header', {
   meta: {
     title: richTextAsPlain(productsDocument.data.meta_title),
     description: richTextAsPlain(productsDocument.data.meta_description),
-    social: productsDocument.data.social
+    social: productsDocument.data.social,
+    canonicalUrl: getCanonicalUrl(productsDocument)
   }
 });
 %>
