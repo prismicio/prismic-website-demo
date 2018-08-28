@@ -23,8 +23,22 @@ include('partials/header', {
     <div class="blog-post-title">
       <%- richTextAsHtml(document.data.title) %>
     </div>
-    <div class="blog-post-rich-content">
-      <%- richTextAsHtml(document.data.rich_content) %>
+    <div class="blog-post-slices-wrapper">
+      <% document.data.body.forEach(function (slice) { %>
+        <% if (slice.slice_type === 'text_block') { %>
+          <div class="blog-post-slice-text">
+            <%- richTextAsHtml(slice.primary.text) %>
+          </div>
+        <% } else if (slice.slice_type === 'image') { %>
+          <div class="blog-post-slice-img">
+            <img src="<%= slice.primary.img.url %>" alt="<%= slice.primary.img.alt %>"/>
+          </div>
+        <% } else if (slice.slice_type === 'embed') { %>
+          <div class="blog-post-slice-embed">
+            <%- slice.primary.embed.html %>
+          </div>
+        <% } %>
+      <% }); %>
     </div>
     <% if (document.data.author.data) { %>
       <div class="blog-post-author-wrapper">
