@@ -23,7 +23,7 @@ include('partials/header', {
             <%= richTextAsPlain(document.data.title) %>
           </p>
           <p class="blog-home-post-excerpt">
-            <%= richTextAsPlain(document.data.rich_content).substring(0, 158) %> …
+            <%= richTextAsPlain(document.data.excerpt).substring(0, 158) %> …
           </p>
           <div class="blog-home-post-button-wrapper">
             <a class="a-button" href="<%= linkResolver(document) %>">

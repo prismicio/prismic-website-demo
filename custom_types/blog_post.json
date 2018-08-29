@@ -15,6 +15,13 @@
         "label" : "Image"
       }
     },
+    "excerpt" : {
+      "type" : "StructuredText",
+      "config" : {
+        "single" : "paragraph",
+        "label" : "Excerpt"
+      }
+    },
     "body" : {
       "type" : "Slices",
       "fieldset" : "Slice zone",
