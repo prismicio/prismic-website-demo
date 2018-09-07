@@ -1,6 +1,5 @@
 const express = require('express');
 const prismicJS = require('prismic-javascript');
-const Cookies = require('cookies');
 
 const linkResolver = require('../link-resolver');
 
@@ -162,9 +161,6 @@ router.get('/pages/:uid', function (req, res, next) {
 router.get('/preview', function (req, res) {
   req.prismic.api.previewSession(req.query.token, linkResolver, '/')
     .then((url) => {
-      const cookies = new Cookies(req, res);
-
-      cookies.set(prismicJS.previewCookie, req.query.token, { maxAge: 30 * 60 * 1000, path: '/', httpOnly: false });
       res.redirect(302, url);
     });
 });
