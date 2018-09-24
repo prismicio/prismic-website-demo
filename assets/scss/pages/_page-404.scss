@@ -1,0 +1,53 @@
+.page-404-wrapper {
+  position: relative;
+  max-width: 1040px;
+  padding: 0 15px;
+  margin: 110px auto 140px;
+}
+
+.page-404-image {
+  width: 798px;
+  height: 377px;
+
+  @media (max-width: 980px) {
+    display: none;
+  }
+}
+
+.page-404-content {
+  position: absolute;
+  top: 0;
+  right: 15px;
+  max-width: 400px;
+
+  @media (max-width: 980px) {
+    position: static;
+  }
+}
+
+.page-404-title {
+  font-size: 192px;
+  font-weight: 900;
+  line-height: 1;
+
+  @media (max-width: 460px) {
+    font-size: 132px;
+  }
+}
+
+.page-404-subtitle {
+  font-size: 40px;
+  font-weight: 700;
+  line-height: 1;
+
+  @media (max-width: 460px) {
+    font-size: 30px;
+  }
+}
+
+.page-404-paragraph {
+  margin-top: 15px;
+  color: #7f7d7c;
+  font-size: 17px;
+  line-height: 1.647;
+}

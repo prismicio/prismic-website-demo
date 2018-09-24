@@ -165,4 +165,8 @@ router.get('/preview', function (req, res) {
     });
 });
 
+router.get('*', function (req, res) {
+  res.status(404).render('page-404');
+});
+
 module.exports = router;
