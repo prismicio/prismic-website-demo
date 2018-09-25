@@ -1,5 +1,3 @@
-/public/bundles/
-
 # Created by https://www.gitignore.io/api/node,macos,visualstudiocode
 
 ### macOS ###
@@ -53,7 +51,7 @@ coverage
 # nyc test coverage
 .nyc_output
 
-# Grunt intermediate storage (http://gruntjs.com/creating-plugins#storing-task-files)
+# Grunt intermediate storage (https://gruntjs.com/creating-plugins#storing-task-files)
 .grunt
 
 # Bower dependency directory (https://bower.io/)
@@ -111,6 +109,5 @@ typings/
 !.vscode/tasks.json
 !.vscode/launch.json
 !.vscode/extensions.json
-
 
 # End of https://www.gitignore.io/api/node,macos,visualstudiocode
