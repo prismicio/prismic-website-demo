@@ -10,6 +10,7 @@
   .header-nav {
     opacity: 1;
     visibility: visible;
+    transition: 150ms;
   }
 
   .header-burger-img--closed {
@@ -52,14 +53,13 @@
     position: absolute;
     z-index: 1;
     top: 92px;
-    bottom: 0;
     left: 0;
     right: 0;
+    min-height: calc(100% - 92px);
     background-color: #f6f6f6;
     font-size: 30px;
     opacity: 0;
     visibility: hidden;
-    transition: 150ms;
   }
 }
 
