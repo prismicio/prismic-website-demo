@@ -82,7 +82,12 @@ router.get('/products', function (req, res, next) {
     .then((values) => {
       const productsDocument = values[0];
       const productDocuments = values[1].results;
-        res.render('products', { productsDocument, productDocuments });      
+        if(productsDocument && productDocuments) {
+          res.render('products', { productsDocument, productDocuments });  
+        }
+        else{
+          res.status(404).render('page-404')
+        }    
     })
     .catch((error) => {
       next(`Error when retrieving documents from Prismic. ${error.message}`);
