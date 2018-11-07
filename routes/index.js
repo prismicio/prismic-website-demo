@@ -132,8 +132,12 @@ router.get('/blog', function (req, res, next) {
     .then((values) => {
       const blogHomeDocument = values[0];
       const blogPostDocuments = values[1].results;
-      
-        res.render('blog-home', { blogHomeDocument, blogPostDocuments });
+      if(blogHomeDocument && blogPostDocuments) {
+          res.render('blog-home', { blogHomeDocument, blogPostDocuments }); 
+        }
+        else{
+          res.status(404).render('page-404')
+        } 
     })
     .catch((error) => {
       next(`Error when retrieving documents from Prismic. ${error.message}`);
