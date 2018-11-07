@@ -25,31 +25,49 @@ include('partials/header', {
         />
         <div class="product-hero-content">
           <h1 class="product-hero-title">
-            <%= document.data.product.title %>
+
+            <%if  (document.data.product){ %>
+            <%= document.data.product.title%>
+            <% } %>
           </h1>
           <h2 class="product-hero-subtitle">
-            <%= document.data.product.country %>
+            <%if  (document.data.product){ %>
+            <%= document.data.product.country%>
+            <% } %>
           </h2>
           <ul class="product-hero-list">
             <li>
-              <%= document.data.product.price %> per <%= document.data.product.weight %>
+              
+              <%if  (document.data.product){ %>
+                <%= document.data.product.price %> per <%= document.data.product.weight %>
+              <% } %>
             </li>
             <li>
-              Taste &amp; Notes: <%= document.data.product.taste %>
+              <%if  (document.data.product){ %>
+                Taste &amp; Notes: <%= document.data.product.taste %>
+              <% } %>
             </li>
             <li>
-              Origin: <%= document.data.product.origin %>
+              <%if  (document.data.product){ %>
+                Origin: <%= document.data.product.origin %>
+              <% } %>
             </li>
             <li>
-              Varietal: <%= document.data.product.varietal %>
+              <%if  (document.data.product){ %>
+                Varietal: <%= document.data.product.varietal %>
+              <% } %>
             </li>
             <li>
-              Process: <%= document.data.product.process %>
+              <%if  (document.data.product){ %>
+                Process: <%= document.data.product.process %>
+              <% } %>  
             </li>
           </ul>
           <h2 class="product-hero-subtitle">Shipping</h2>
           <p class="product-hero-paragraph">
-            <%= document.data.product.shipping %>
+            <%if  (document.data.product){ %>
+                <%= document.data.product.shipping %>
+              <% } %>  
           </p>
           <div class="product-hero-button-wrapper">
             <button
@@ -69,7 +87,9 @@ include('partials/header', {
         <%- richTextAsHtml(document.data.title) %>
       </div>
       <div class="product-description-content">
-        <%- richTextAsHtml(document.data.product_description) %>
+        <%if  (document.data.product){ %>
+                <%- richTextAsHtml(document.data.product_description) %>
+        <% } %>  
       </div>
     </div>
   </section>
@@ -98,10 +118,14 @@ include('partials/header', {
               alt="<%= item.product1.data.product_image.alt %>"
             />
             <p class="products-grid-item-title">
-              <%= item.product1.data.product.title %>
+              <%if  (item.product1.data.product){ %>
+                <%= item.product1.data.product.title %>
+              <% } %>  
             </p>
             <p class="products-grid-item-country">
-              <%= item.product1.data.product.country %>
+              <%if  (item.product1.data.product){ %>
+                <%= item.product1.data.product.country %>
+              <% } %>  
             </p>
           </a>
         <% } %>

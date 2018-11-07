@@ -61,7 +61,12 @@ router.get('/', function (req, res, next) {
 
   req.prismic.api.getSingle('homepage', { graphQuery })
     .then((document) => {
-      res.render('homepage', { document });
+      if(document) {
+        res.render('homepage', { document });
+      }
+      else{
+        res.status(404).render('page-404')
+      };
     })
     .catch((error) => {
       next(`Error when retrieving "homepage" document from Prismic. ${error.message}`);
@@ -77,7 +82,12 @@ router.get('/products', function (req, res, next) {
     .then((values) => {
       const productsDocument = values[0];
       const productDocuments = values[1].results;
-      res.render('products', { productsDocument, productDocuments });
+        if(productsDocument && productDocuments) {
+          res.render('products', { productsDocument, productDocuments });  
+        }
+        else{
+          res.status(404).render('page-404')
+        }    
     })
     .catch((error) => {
       next(`Error when retrieving documents from Prismic. ${error.message}`);
@@ -101,7 +111,12 @@ router.get('/products/:uid', function (req, res, next) {
 
   req.prismic.api.getByUID('product', req.params.uid, { graphQuery })
     .then((document) => {
-      res.render('product', { document });
+      if(document) {
+        res.render('product', { document });
+      }
+      else{
+        res.status(404).render('page-404')
+      };
     })
     .catch((error) => {
       next(`Error when retrieving "product" document from Prismic. ${error.message}`);
@@ -117,7 +132,12 @@ router.get('/blog', function (req, res, next) {
     .then((values) => {
       const blogHomeDocument = values[0];
       const blogPostDocuments = values[1].results;
-      res.render('blog-home', { blogHomeDocument, blogPostDocuments });
+      if(blogHomeDocument && blogPostDocuments) {
+          res.render('blog-home', { blogHomeDocument, blogPostDocuments }); 
+        }
+        else{
+          res.status(404).render('page-404')
+        } 
     })
     .catch((error) => {
       next(`Error when retrieving documents from Prismic. ${error.message}`);
@@ -139,7 +159,12 @@ router.get('/blog/:uid', function (req, res, next) {
 
   req.prismic.api.getByUID('blog_post', req.params.uid, { graphQuery })
     .then((document) => {
-      res.render('blog-post', { document });
+      if(document) {
+        res.render('blog-post', { document });
+      }
+      else{
+        res.status(404).render('page-404')
+      };
     })
     .catch((error) => {
       next(`Error when retrieving "blog_post" document from Prismic. ${error.message}`);
@@ -149,8 +174,13 @@ router.get('/blog/:uid', function (req, res, next) {
 /* GET landing page. */
 router.get('/pages/:uid', function (req, res, next) {
   req.prismic.api.getByUID('landing_page', req.params.uid)
-    .then((document) => {
-      res.render('landing-page', { document });
+    .then((document) => {  
+      if(document) {
+        res.render('landing-page', { document });
+      }
+      else{
+        res.status(404).render('page-404')
+      };
     })
     .catch((error) => {
       next(`Error when retrieving "landing_page" document from Prismic. ${error.message}`);
