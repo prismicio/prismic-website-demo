@@ -25,31 +25,32 @@ include('partials/header', {
         />
         <div class="product-hero-content">
           <h1 class="product-hero-title">
-            <%= document.data.product.title %>
+            <% const product = document.data.product %>
+            <%= product ? product.title : 'Unknown' %>
           </h1>
           <h2 class="product-hero-subtitle">
-            <%= document.data.product.country %>
+            <%= product ? product.country : 'Unknown' %>
           </h2>
           <ul class="product-hero-list">
             <li>
-              <%= document.data.product.price %> per <%= document.data.product.weight %>
+              <%= product ? product.price : 'Unknown' %> per <%= product ? product.weight : 'Unknown' %>
             </li>
             <li>
-              Taste &amp; Notes: <%= document.data.product.taste %>
+              Taste &amp; Notes: <%= product ? product.taste : 'Unknown' %>
             </li>
             <li>
-              Origin: <%= document.data.product.origin %>
+              Origin: <%= product ? product.origin : 'Unknown' %>
             </li>
             <li>
-              Varietal: <%= document.data.product.varietal %>
+              Varietal: <%= product ? product.varietal : 'Unknown' %>
             </li>
             <li>
-              Process: <%= document.data.product.process %>
+              Process: <%= product ? product.process : 'Unknown' %>
             </li>
           </ul>
           <h2 class="product-hero-subtitle">Shipping</h2>
           <p class="product-hero-paragraph">
-            <%= document.data.product.shipping %>
+            <%= product ? product.shipping : 'Unknown' %>
           </p>
           <div class="product-hero-button-wrapper">
             <button
@@ -98,10 +99,11 @@ include('partials/header', {
               alt="<%= item.product1.data.product_image.alt %>"
             />
             <p class="products-grid-item-title">
-              <%= item.product1.data.product.title %>
+              <% const linkedProduct = item.product1.data.product %>
+              <%= linkedProduct ? linkedProduct.title : '' %>
             </p>
             <p class="products-grid-item-country">
-              <%= item.product1.data.product.country %>
+              <%= linkedProduct ? linkedProduct.country : '' %>
             </p>
           </a>
         <% } %>

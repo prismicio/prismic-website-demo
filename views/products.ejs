@@ -30,10 +30,11 @@ include('partials/header', {
           alt="<%= document.data.product_image.alt %>"
         />
         <p class="products-grid-item-title">
-          <%= document.data.product.title %>
+          <% const product = document.data.product %>
+          <%= product ? product.title : '' %>
         </p>
         <p class="products-grid-item-country">
-          <%= document.data.product.country %>
+          <%= product ? product.country : '' %>
         </p>
       </a>
     <% }); %>

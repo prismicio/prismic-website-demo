@@ -21,10 +21,11 @@
             alt="<%= item.link_to_product.data.product_image.alt %>"
           />
           <p class="products-grid-item-title">
-            <%= item.link_to_product.data.product.title %>
+            <% const product = item.link_to_product.data.product %>
+            <%= product ? product.title : '' %>
           </p>
           <p class="products-grid-item-country">
-            <%= item.link_to_product.data.product.country %>
+            <%= product ? product.country : '' %>
           </p>
         </a>
       <% } %>
