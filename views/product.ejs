@@ -25,7 +25,7 @@ include('partials/header', {
         />
         <div class="product-hero-content">
           <h1 class="product-hero-title">
-            <%= document.data.product.title %>
+            <%= richTextAsPlain(document.data.product_name) %>
           </h1>
           <h2 class="product-hero-subtitle">
             <%= document.data.product.country %>
