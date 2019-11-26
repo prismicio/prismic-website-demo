@@ -21,11 +21,11 @@
             alt="<%= item.link_to_product.data.product_image.alt %>"
           />
           <p class="products-grid-item-title">
-            <% console.dir(item.link_to_product) %>
-            <%= richTextAsPlain(item.link_to_product.data.product_name) %>
+            <% const product = item.link_to_product.data.product %>
+            <%= product ? product.title : '' %>
           </p>
           <p class="products-grid-item-country">
-            <%= item.link_to_product.data.product && item.link_to_product.data.product.country %>
+            <%= product ? product.country : '' %>
           </p>
         </a>
       <% } %>
