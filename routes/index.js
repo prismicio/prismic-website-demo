@@ -20,6 +20,7 @@ router.get('/', function (req, res, next) {
             link_to_product {
               product_image
               product
+              product_name
             }
           }
         }
